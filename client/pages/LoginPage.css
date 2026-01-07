@@ -1,0 +1,51 @@
+/* src/pages/LoginPage.css (Updated) */
+
+:root {
+  /* CHANGED: New transparent white glass colors */
+  --glass-bg: rgba(255, 255, 255, 0.08); /* More subtle */
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --primary-glow: #00d4ff;
+  --secondary-glow: #00aefd;
+  --text-color: #e0e0e0;
+  --input-bg: rgba(0, 0, 0, 0.2);
+}
+
+.login-container {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 3rem 2.5rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: fadeIn 1s ease-out;
+}
+
+/* ... (rest of the login-form styling remains the same) ... */
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+.login-form h2 { font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem; }
+.login-form p { color: var(--text-color); margin-bottom: 2.5rem; font-size: 0.95rem; }
+.input-group { position: relative; margin-bottom: 2rem; }
+.input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--primary-glow); opacity: 0.6; transition: opacity 0.3s ease; }
+.input-group input { width: 100%; padding: 15px 15px 15px 45px; background: var(--input-bg); border: 1px solid transparent; border-radius: 10px; color: #fff; font-size: 1rem; outline: none; transition: border-color 0.3s ease, box-shadow 0.3s ease; }
+.input-group input:focus { border-color: var(--glass-border); }
+.input-group input:focus + label, .input-group input:not(:placeholder-shown) + label { top: -10px; left: 10px; font-size: 0.75rem; color: var(--primary-glow); background: #000000; padding: 0 5px; }
+.input-group input:focus ~ i { opacity: 1; }
+.input-group label { position: absolute; left: 45px; top: 50%; transform: translateY(-50%); color: var(--text-color); opacity: 0.8; pointer-events: none; transition: all 0.3s ease; }
+.login-btn { width: 100%; padding: 15px; border: none; border-radius: 10px; background: linear-gradient(45deg, var(--secondary-glow), var(--primary-glow)); color: #030014; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0, 174, 253, 0.4); margin-top: 1rem; }
+.login-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 174, 253, 0.6); }
+.form-footer { margin-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.85rem; }
+.form-footer a { color: var(--text-color); text-decoration: none; transition: color 0.3s ease; }
+.form-footer a:hover { color: var(--primary-glow); }

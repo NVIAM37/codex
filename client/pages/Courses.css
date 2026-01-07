@@ -1,0 +1,269 @@
+:root {
+  --background-color: #000000; /* Pure black background */
+  --text-color: #e0e0e0;
+  --highlight-color: #00d4ff;
+  --secondary-highlight-color: #00aefd;
+  --card-bg-color: rgba(15, 15, 15, 0.5); /* Darkened cards */
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+#wave-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* --- Subtle & Professional Text Glow --- */
+@keyframes subtle-glow {
+  0%,
+  100% {
+    text-shadow:
+      0 0 2px #fff,
+      0 0 4px #fff,
+      0 0 10px var(--highlight-color);
+  }
+  50% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 8px var(--secondary-highlight-color),
+      0 0 12px var(--secondary-highlight-color);
+  }
+}
+
+.hero-section {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0px 5% 180px; /* Reduced the top padding from 320px to 180px */
+  gap: 2rem;
+  position: relative;
+}
+
+.hero-content {
+  text-align: left;
+}
+
+/* --- Glassmorphism Wrapper for Hero Text --- */
+.hero-title-wrapper {
+  background: rgba(20, 20, 20, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1.5rem 2.5rem;
+  display: inline-block;
+  box-shadow: 0 8px 32px 0 rgba(0, 212, 255, 0.1);
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  animation: subtle-glow 5s ease-in-out infinite;
+  margin-bottom: 0;
+}
+
+/* --- Refined 3D Crystal --- */
+.hero-3d-container {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.crystal {
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.crystal-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    rgba(225, 225, 225, 0.1),
+    rgba(0, 174, 253, 0.05)
+  );
+  border: 1px solid rgba(225, 225, 225, 0.2);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 20px inset rgba(0, 174, 253, 0.2);
+}
+.front {
+  transform: translateZ(100px);
+}
+.back {
+  transform: translateZ(-100px) rotateY(180deg);
+}
+.right {
+  transform: rotateY(90deg) translateZ(100px);
+}
+.left {
+  transform: rotateY(-90deg) translateZ(100px);
+}
+.top {
+  transform: rotateX(90deg) translateZ(100px);
+}
+.bottom {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+.course-container {
+  padding: 100px 5%;
+  position: relative;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 60px;
+}
+
+/* --- REPLACEMENT FOR BOOTSTRAP GRID --- */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem; /* Replaces g-5 */
+  justify-content: center;
+}
+
+.course-card-wrapper {
+  opacity: 0;
+}
+.course-card {
+  background: var(--card-bg-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.course-card::before {
+  content: "FREE";
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #000;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 50px;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    var(--highlight-color) 0%,
+    transparent 60%
+  );
+  z-index: 1;
+  filter: blur(1px);
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+  padding-top: 5px;
+  line-height: 1.5;
+}
+.course-card:hover::before {
+  opacity: 1;
+}
+.course-icon img {
+  max-width: 90px;
+  margin-bottom: 20px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.course-card:hover .course-icon img {
+  transform: scale(1.15);
+}
+.course-card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+.course-card p {
+  font-size: 1rem;
+}
+.view-course-btn {
+  background: var(--highlight-color);
+  color: #111;
+  padding: 12px 25px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-weight: 600;
+  margin-top: 20px;
+  border: none;
+}
+.view-course-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--highlight-color);
+}
+
+/* --- Responsive Design & Mobile Optimization --- */
+@media (max-width: 768px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 120px 5% 80px;
+    gap: 4rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-title-wrapper {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .crystal {
+    width: 160px;
+    height: 160px;
+  }
+
+  .front {
+    transform: translateZ(80px);
+  }
+  .back {
+    transform: translateZ(-80px) rotateY(180deg);
+  }
+  .right {
+    transform: rotateY(90deg) translateZ(80px);
+  }
+  .left {
+    transform: rotateY(-90deg) translateZ(80px);
+  }
+  .top {
+    transform: rotateX(90deg) translateZ(80px);
+  }
+  .bottom {
+    transform: rotateX(-90deg) translateZ(80px);
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+  }
+}

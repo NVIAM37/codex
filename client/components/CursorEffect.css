@@ -1,0 +1,76 @@
+/* Cursor Effect Styles */
+
+/* Hide the default system cursor */
+* {
+  cursor: none !important;
+}
+
+/* The small dot that tracks the mouse precisely */
+.cursor-dot {
+  position: fixed;
+  top: -20px; 
+  left: -20px;
+  width: 8px;
+  height: 8px;
+  background-color: #e0e0e0; 
+  border-radius: 50%;
+  pointer-events: none; 
+  z-index: 10000;
+  
+  /* Smooth transitions for the click interaction */
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+/* The larger follower circle with the bloom effect */
+.cursor-follower {
+  position: fixed;
+  top: -50px; 
+  left: -50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+
+  /* The "bloom" effect using layered, blurred box-shadows */
+  box-shadow: 
+    /* A soft inner glow using the secondary highlight color */
+    inset 0 0 6px #00aefd,
+    /* The main, soft outer glow */
+    0 0 12px #00d4ff,
+    /* A wider, more diffuse halo for the post-processing feel */
+    0 0 25px #00d4ff;
+  
+  /* The smooth "lag" and interaction animations */
+  transition: 
+    transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s ease-in-out;
+}
+
+/* Interactive state when mouse is clicked */
+body.cursor-active .cursor-follower {
+  /* Scale up the follower on click */
+  transform: scale(1.6);
+  /* Intensify the bloom effect */
+  box-shadow: 
+    inset 0 0 8px #00aefd,
+    0 0 20px #00d4ff,
+    0 0 40px #00d4ff;
+}
+
+body.cursor-active .cursor-dot {
+  /* Hide the dot when the follower is active */
+  opacity: 0;
+}
+
+/* Show default cursor on mobile devices */
+@media (max-width: 768px) {
+  * {
+    cursor: auto !important;
+  }
+  
+  .cursor-dot,
+  .cursor-follower {
+    display: none !important;
+  }
+}
