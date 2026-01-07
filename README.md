@@ -1,87 +1,123 @@
-# CODEX Frontend - Digital Solutions & IT Training UI
-React + Vite frontend with glassmorphic UI, 3D interactive backgrounds, and expert-led course management.
+# CODEX Frontend: Digital Solutions & IT Training UI
 
-🚀 Features
-🧠 CODEX Intelligence Layer
-Dynamic 3D Environment: Interactive Three.js background with real-time mouse tracking and bloom effects.
-GSAP Motion Engine: Advanced scroll-triggered animations and staggered entrance effects.
-Glassmorphic Design: Premium UI with backdrop blur, neon accents, and high-visibility HUD overlays.
-📡 Educational Ecosystem
-Course Management: Detailed curriculum pages for HTML, CSS, JavaScript, Bootstrap, and more.
-Internship tracking: Structured path for UI/UX, Linux, and Frontend development interns.
-Mentorship Hub: Direct access to startup incubation and technical consulting.
-🏗️ Built with Modern Tech
-Framework: React 18 + Vite
-Graphics: Three.js + GLSL Shaders
-Animations: GSAP (GreenSock) + ScrollTrigger
-Styling: Vanilla CSS Grid/Flex + Bootstrap 5 (for layout utilities)
-State Management: React Hooks (useState, useEffect, useRef)
-📱 Fully Responsive
-Mobile-First Design: Glassmorphic components adapt seamlessly to all screen sizes.
-Touch-Enabled: Interactive elements optimized for both desktop and mobile agents.
+CODEX Frontend is a modern web application built with **React 18** and **Vite**. It features a glassmorphic UI, 3D interactive backgrounds, and a management system for expert-led IT courses.
 
-🏗️ Architecture
-Tech Stack:
+---
 
-React 18
-Vite (build tool)
-Three.js (3D Graphics)
-GSAP (Animations)
-Lucide React / Font Awesome (Icons)
-Project Structure:
+## 🚀 Key Features
 
+### 🧠 CODEX Intelligence Layer
+
+* **Dynamic 3D Environment:** Interactive Three.js background with real-time mouse tracking and bloom effects.
+* **GSAP Motion Engine:** High-performance scroll-triggered animations and staggered entrance effects.
+* **Glassmorphic Design:** A premium visual style using backdrop blur, neon accents, and HUD overlays.
+
+### 📡 Educational Ecosystem
+
+* **Course Management:** Curriculum pages for HTML, CSS, JavaScript, and Bootstrap.
+* **Internship Tracking:** Structured paths for UI/UX, Linux, and Frontend development.
+* **Mentorship Hub:** Integrated access to startup incubation and technical consulting.
+
+---
+
+## 🏗️ Technical Stack
+
+| Category | Tools Used |
+| --- | --- |
+| **Framework** | React 18, Vite |
+| **Graphics** | Three.js, GLSL Shaders |
+| **Animations** | GSAP (GreenSock), ScrollTrigger |
+| **Styling** | Vanilla CSS Grid/Flex, Bootstrap 5 |
+| **Icons** | Lucide React, Font Awesome |
+
+---
+
+## 📂 Project Structure
+
+```text
 frontend/
 ├── client/
 │   ├── components/
 │   │   ├── Navbar.jsx    # Glassmorphic navigation
-│   │   └── Footer.jsx    # Corporate footer with contact info
+│   │   └── Footer.jsx    # Corporate footer
 │   ├── pages/
 │   │   ├── HomePage.jsx  # 3D Landing page
 │   │   ├── Courses.jsx   # Training programs
 │   │   └── Projects.jsx  # Software portfolio
-│   ├── App.jsx
-│   └── global.css
-├── public/
-│   └── favicon.ico
-└── vite.config.js
+│   ├── App.jsx           # Main application logic
+│   └── global.css        # Global styles & glassmorphic variables
+├── public/               # Static assets
+└── vite.config.js        # Vite configuration
 
-🚀 Quick Start
-Installation
+```
+
+---
+
+## 🛠️ Quick Start
+
+Follow these steps to set up the project locally:
+
+1. **Install Dependencies**
+```bash
 npm install
-Environment Variables
-Copy .env.example to .env:
 
+```
+
+
+2. **Set Up Environment Variables**
+Copy the example file to a new `.env` file:
+```bash
 cp .env.example .env
-Development
+
+```
+
+
+3. **Run Development Server**
+```bash
 npm run dev
-App runs on http://localhost:5173
 
-Build
+```
+
+
+The app will be available at: `http://localhost:5173`
+4. **Build for Production**
+```bash
 npm run build
-Output in dist/ directory
 
-📦 Deployment
-Render.com (Recommended)
-Connect GitHub repository
-Build Command: npm install && npm run build
-Publish Directory: dist
-Vercel
-Import repository
-Framework: Vite
-Build command: npm run build
-Output directory: dist
+```
 
-🎯 Usage
-Local Testing
-Start the development server: npm run dev
-Open http://localhost:5173
-Explore the 3D interactive homepage
-Navigate through the Training and Software sections
-Grant location/camera permissions for specific training modules if required
 
-📄 License
-GPL-3.0
+Files will be generated in the `dist/` directory.
 
-Part of CODEX V2 - Advanced Entity Tracking & Heuristic Evaluation Resource
+---
 
-Maintained by: NVIAM
+## 📦 Deployment
+
+### Render.com
+
+1. Connect your GitHub repository.
+2. **Build Command:** `npm install && npm run build`
+3. **Publish Directory:** `dist`
+
+### Vercel
+
+1. Import the repository.
+2. Select **Vite** as the Framework Preset.
+3. The build command and output directory (`dist`) will be detected automatically.
+
+---
+
+## 🎯 Usage
+
+* **Local Testing:** Use `npm run dev` to explore the 3D interactive elements.
+* **Permissions:** Some modules may request camera or location permissions for specific training features.
+* **Navigation:** Use the glassmorphic sidebar/navbar to switch between the Training and Software Portfolio sections.
+
+---
+
+## 📄 License & Maintenance
+
+* **License:** GPL-3.0
+* **Maintained by:** NVIAM
+* **Project Context:** Part of CODEX V2 (Advanced Entity Tracking & Heuristic Evaluation Resource).
+
